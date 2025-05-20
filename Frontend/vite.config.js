@@ -9,6 +9,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['@react-oauth/google'],
+    },
+  },
   server: {
     proxy: {
       '/api': 'https://hirewave1.onrender.com',

@@ -21,9 +21,21 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
+// CORS configuration based on environment
+const isProduction = process.env.NODE_ENV === 'production';
 const corsOptions = {
-  origin:['http://localhost:5173', 'http://localhost:3000', 'https://hire-wave1-hmca-git-main-patelhetis-projects.vercel.app', 'https://hire-wave1-hmca-eswmwnkic-patelhetis-projects.vercel.app', 'https://hire-wave1.vercel.app'],
+  origin: isProduction 
+    ? [
+        'https://hire-wave1-8245.vercel.app',
+        'https://hire-wave1.vercel.app',
+        'https://hire-wave1-hmca-git-main-patelhetis-projects.vercel.app',
+        'https://hire-wave1-hmca-eswmwnkic-patelhetis-projects.vercel.app',
+        process.env.FRONTEND_URL  // Get from environment variable if set
+      ].filter(Boolean) // Filter out any undefined/null values
+    : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token']
 };
 
 app.use(cors(corsOptions));

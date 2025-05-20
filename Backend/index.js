@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin:['http://localhost:5173', 'http://localhost:3000'],
+  origin:['http://localhost:5173', 'http://localhost:3000', 'https://hire-wave1-hmca-git-main-patelhetis-projects.vercel.app', 'https://hire-wave1-hmca-eswmwnkic-patelhetis-projects.vercel.app', 'https://hire-wave1.vercel.app'],
   credentials: true,
 };
 

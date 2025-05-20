@@ -187,9 +187,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <RouterProvider router={appRouter}/>
-    </GoogleOAuthProvider>
+    <RouterProvider router={appRouter}/>
   )
 }
 

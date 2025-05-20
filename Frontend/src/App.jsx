@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { GoogleOAuthProvider } from '@react-oauth/google'
 // Auth components
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
